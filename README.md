@@ -3,7 +3,8 @@
 # 🏛️ Dinas Kependudukan dan Pencatatan Sipil
 ## Kabupaten Musi Rawas Utara
 
-**Layanan dan Data Kependudukan Terintegrasi**
+**Layanan Informasi Kependudukan Terintegrasi**
+##### `Sumber Data Semester I | Data Kependudukan Kabupaten Musi Rawas Utara`
 
 ---
 
@@ -24,7 +25,6 @@
 - [Data Kependudukan](#-data-kependudukan)
 - [Cara Mengakses](#-cara-mengakses)
 - [Kontribusi](#-kontribusi)
-- [Kontak Kami](#-kontak-kami)
 - [Lisensi](#-lisensi)
 
 ---
@@ -111,12 +111,12 @@ Platform ini menyediakan akses informasi kependudukan yang meliputi:
 4. ✍️ Isi formulir dengan data yang valid
 5. 📤 Ajukan permohonan dan tunggu proses verifikasi
 
-## 📜 Lisensi
-Proyek ini dilisensikan di bawah Apache License 2.0 — lihat file LICENSE untuk detail lebih lanjut.
-
 ## Kontribusi
 
 ` @dukcapilmru-tech`
+
+## 📜 Lisensi
+Proyek ini dilisensikan di bawah Apache License 2.0 — lihat file LICENSE untuk detail lebih lanjut.
 
 ### Untuk Pengembang
 
