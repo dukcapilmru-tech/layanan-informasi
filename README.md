@@ -116,7 +116,7 @@ Proyek ini dilisensikan di bawah Apache License 2.0 — lihat file LICENSE untuk
 
 ## Kontribusi
 
-` @dukcapil-tech`
+` @dukcapilmru-tech`
 
 ### Untuk Pengembang
 
