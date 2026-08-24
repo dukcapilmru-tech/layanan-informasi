@@ -1399,9 +1399,9 @@
                 const statusText = document.getElementById('statusText');
                 const statusDesc = document.getElementById('statusDesc');
                 
-                // Service hours: 08:00-15:00, break 12:00-13:00
+                // Service hours: 08:00-16:00, break 12:00-13:00
                 const serviceStart = 8 * 60;      // 480
-                const serviceEnd = 15 * 60;       // 900
+                const serviceEnd = 16 * 60;       // 900
                 const breakStart = 12 * 60;       // 720
                 const breakEnd = 13 * 60;         // 780
                 
@@ -1475,8 +1475,8 @@
 
 👥 Total Penduduk: 208.652 Jiwa
 
-👨 Laki-laki: 106.208 (50.9%)
-👩 Perempuan: 102.444 (49.1%)
+👨 Laki-laki: 106.208 (50.90%)
+👩 Perempuan: 102.444 (49.10%)
 
 🗺️ Wilayah Administratif:
    • 7 Kecamatan
@@ -1650,7 +1650,7 @@ Kabupaten Musi Rawas Utara`;
                 ctx.fillText('Laki-laki', startX + cardW / 2, cardY + 135);
                 ctx.font = 'bold 18px Arial';
                 ctx.fillStyle = 'white';
-                ctx.fillText('50.9%', startX + cardW / 2, cardY + 162);
+                ctx.fillText('50.90%', startX + cardW / 2, cardY + 162);
                 
                 // Female card
                 ctx.fillStyle = 'rgba(255,255,255,0.15)';
@@ -1673,7 +1673,7 @@ Kabupaten Musi Rawas Utara`;
                 ctx.fillText('Perempuan', startX + cardW + gap + cardW / 2, cardY + 135);
                 ctx.font = 'bold 18px Arial';
                 ctx.fillStyle = 'white';
-                ctx.fillText('49.1%', startX + cardW + gap + cardW / 2, cardY + 162);
+                ctx.fillText('49.10%', startX + cardW + gap + cardW / 2, cardY + 162);
                 
                 // Info boxes
                 const infoY = 660;
@@ -1720,7 +1720,7 @@ Kabupaten Musi Rawas Utara`;
                     ctx.fillText('DISDUKCAPIL', W - 50, H - 50);
                     ctx.font = '10px Arial';
                     ctx.fillStyle = 'rgba(255,255,255,0.3)';
-                    ctx.fillText('Musi Rawas Utara', W - 50, H - 35);
+                    ctx.fillText('Kab. Musi Rawas Utara', W - 50, H - 35);
                     ctx.font = '9px Arial';
                     ctx.fillText('dukcapilmru-tech.github.io/layanan-informasi/', W - 50, H - 20);
                 } catch(e) {
