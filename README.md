@@ -1,4 +1,4 @@
-<div size="100px">![DUKCAPIL](img/repository-open-graph-template.png)</div>
+![DUKCAPIL](img/repository-open-graph-template.png)
 <div align="center">
 
 # 🏛️ Dinas Kependudukan dan Pencatatan Sipil
