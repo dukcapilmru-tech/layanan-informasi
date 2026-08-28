@@ -696,106 +696,137 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
   
   window.scrollToTop = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-window.openShareModal = function() { document.getElementById('shareModal').classList.add('active'); };
-  window.closeShareModal = function() { document.getElementById('shareModal').classList.remove('active'); closeImagePreview(); };
-  document.getElementById('shareModal').addEventListener('click', function(e) { if (e.target === this) closeShareModal(); });
-  
-  var shareText = 'Data Kependudukan Semester 1 Kabupaten Musi Rawas Utara:\n\n- Total Penduduk: 208.652 jiwa\n- Laki-laki: 106.208\n- Perempuan: 102.444\n- 7 Kecamatan, 89 Desa & Kelurahan\n\nSumber: DUKCAPIL Musi Rawas Utara\nWebsite: https://dukcapilmru-tech.github.io/layanan-informasi/';
-  window.shareToWhatsApp = function() { window.open('https://wa.me/?text=' + encodeURIComponent(shareText), '_blank'); };
-  window.shareToFacebook = function() { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://dukcapilmru-tech.github.io/layanan-informasi/'), '_blank'); };
-  window.shareToTwitter = function() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText), '_blank'); };
-  window.shareToTelegram = function() { window.open('https://t.me/share/url?url=' + encodeURIComponent('https://dukcapilmru-tech.github.io/layanan-informasi/') + '&text=' + encodeURIComponent(shareText), '_blank'); };
-  window.copyShareText = function() { navigator.clipboard.writeText(shareText).then(function() { alert('Data berhasil disalin!'); }).catch(function() { alert('Gagal menyalin'); }); };
-  
-  function roundRect(c, x, y, w, h, r) { c.beginPath(); c.moveTo(x+r, y); c.lineTo(x+w-r, y); c.quadraticCurveTo(x+w, y, x+w, y+r); c.lineTo(x+w, y+h-r); c.quadraticCurveTo(x+w, y+h, x+w-r, y+h); c.lineTo(x+r, y+h); c.quadraticCurveTo(x, y+h, x, y+h-r); c.lineTo(x, y+r); c.quadraticCurveTo(x, y, x+r, y); c.closePath(); }
-  
-  window.generateShareImage = function() {
-    var img = new Image();
-    img.crossOrigin = 'anonymous';
-    img.onload = function() {
-      var cv = document.createElement('canvas');
-      cv.width = 1080; cv.height = 1080;
-      var c = cv.getContext('2d');
-      
-      var grad = c.createLinearGradient(0, 0, cv.width, cv.height);
-      grad.addColorStop(0, '#faf9f4'); grad.addColorStop(1, '#e8f0e9');
-      c.fillStyle = grad; c.fillRect(0, 0, cv.width, cv.height);
-      
-      c.beginPath(); c.arc(cv.width - 100, 100, 200, 0, Math.PI * 2); c.fillStyle = 'rgba(41, 122, 46, 0.08)'; c.fill();
-      c.beginPath(); c.arc(100, cv.height - 100, 180, 0, Math.PI * 2); c.fillStyle = 'rgba(217, 119, 6, 0.08)'; c.fill();
-      
-      c.save();
-      c.globalAlpha = 0.12;
-      c.translate(cv.width / 2, cv.height / 2);
-      c.rotate(-25 * Math.PI / 180);
-      c.drawImage(img, -250, -250, 500, 500);
-      c.restore();
-      
-      var bg = c.createLinearGradient(0, 0, cv.width, 0);
-      bg.addColorStop(0, '#297a2e'); bg.addColorStop(1, '#d97706');
-      c.fillStyle = bg; c.fillRect(0, 0, cv.width, 12);
-      
-      c.fillStyle = '#297a2e'; c.font = 'bold 48px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
-      c.fillText('DATA KEPENDUDUKAN', cv.width / 2, 120);
-      c.fillStyle = '#0f172a'; c.font = 'bold 36px Comfortaa, Arial, sans-serif';
-      c.fillText('Kabupaten Musi Rawas Utara', cv.width / 2, 170);
-      c.fillStyle = '#64748b'; c.font = '24px Comfortaa, Arial, sans-serif';
-      c.fillText('Semester 1 - Tahun 2026', cv.width / 2, 210);
-      
-      c.strokeStyle = 'rgba(41, 122, 46, 0.3)'; c.lineWidth = 2;
-      c.beginPath(); c.moveTo(150, 250); c.lineTo(cv.width - 150, 250); c.stroke();
-      
-      c.fillStyle = 'rgba(41, 122, 46, 0.12)'; roundRect(c, 100, 290, cv.width - 200, 140, 20); c.fill();
-      c.fillStyle = '#64748b'; c.font = '22px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
-      c.fillText('TOTAL PENDUDUK', cv.width / 2, 340);
-      c.fillStyle = '#297a2e'; c.font = 'bold 64px Comfortaa, Arial, sans-serif';
-      c.fillText('208.652', cv.width / 2, 400);
-      c.fillStyle = '#64748b'; c.font = '22px Comfortaa, Arial, sans-serif';
-      c.fillText('jiwa', cv.width / 2, 425);
-      
-      c.fillStyle = 'rgba(37, 99, 235, 0.10)'; roundRect(c, 100, 460, (cv.width - 220) / 2, 160, 20); c.fill();
-      c.fillStyle = '#2563eb'; c.font = 'bold 28px Comfortaa, Arial, sans-serif';
-      c.fillText('Laki-laki', 100 + (cv.width - 220) / 4, 510);
-      c.fillStyle = '#0f172a'; c.font = 'bold 48px Comfortaa, Arial, sans-serif';
-      c.fillText('106.208', 100 + (cv.width - 220) / 4, 570);
-      c.fillStyle = '#2563eb'; c.font = 'bold 24px Comfortaa, Arial, sans-serif';
-      c.fillText('50.90%', 100 + (cv.width - 220) / 4, 605);
-      
-      c.fillStyle = 'rgba(219, 39, 119, 0.10)'; roundRect(c, 100 + (cv.width - 220) / 2 + 20, 460, (cv.width - 220) / 2, 160, 20); c.fill();
-      c.fillStyle = '#db2777'; c.font = 'bold 28px Comfortaa, Arial, sans-serif';
-      c.fillText('Perempuan', 100 + (cv.width - 220) / 2 + 20 + (cv.width - 220) / 4, 510);
-      c.fillStyle = '#0f172a'; c.font = 'bold 48px Comfortaa, Arial, sans-serif';
-      c.fillText('102.444', 100 + (cv.width - 220) / 2 + 20 + (cv.width - 220) / 4, 570);
-      c.fillStyle = '#db2777'; c.font = 'bold 24px Comfortaa, Arial, sans-serif';
-      c.fillText('49.10%', 100 + (cv.width - 220) / 2 + 20 + (cv.width - 220) / 4, 605);
-      
-      c.fillStyle = 'rgba(217, 119, 6, 0.12)'; roundRect(c, 100, 650, cv.width - 200, 100, 20); c.fill();
-      c.fillStyle = '#d97706'; c.font = 'bold 26px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
-      c.fillText('7 Kecamatan, 89 Desa dan Kelurahan', cv.width / 2, 710);
-      
-      c.fillStyle = 'rgba(41, 122, 46, 0.08)'; roundRect(c, 100, 780, cv.width - 200, 120, 20); c.fill();
-      c.fillStyle = '#0f172a'; c.font = 'bold 22px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
-      c.fillText('Sumber: DUKCAPIL Musi Rawas Utara', cv.width / 2, 830);
-      c.fillStyle = '#297a2e'; c.font = 'bold 20px Comfortaa, Arial, sans-serif';
-      c.fillText('dukcapilmru-tech.github.io/layanan-informasi/', cv.width / 2, 870);
-      
-      c.fillStyle = '#297a2e'; c.fillRect(0, cv.height - 12, cv.width, 12);
-      
+/* Replace the current generateShareImage / related global vars with the following (inside the <script> IIFE) */
+var generatedImageURL = null;
+// Fallback to an existing in-page logo/watermark if available
+var WATERMARK_LOGO = (document.getElementById('logoLight') && document.getElementById('logoLight').src)
+                    || (document.getElementById('watermarkImg') && document.getElementById('watermarkImg').src)
+                    || '';
+
+// Generates the share image; if logo fails to load (or CORS blocks it) we still render without it
+window.generateShareImage = function() {
+  var img = new Image();
+  // Request CORS, but if the server doesn't allow it we'll handle the error and still render
+  img.crossOrigin = 'Anonymous';
+
+  // render(canvasContext, imgLoadedFlag)
+  function renderCanvas(imgLoaded) {
+    var cv = document.createElement('canvas');
+    cv.width = 1080; cv.height = 1080;
+    var c = cv.getContext('2d');
+
+    var grad = c.createLinearGradient(0, 0, cv.width, cv.height);
+    grad.addColorStop(0, '#faf9f4'); grad.addColorStop(1, '#e8f0e9');
+    c.fillStyle = grad; c.fillRect(0, 0, cv.width, cv.height);
+
+    // decorative circles
+    c.beginPath(); c.arc(cv.width - 100, 100, 200, 0, Math.PI * 2); c.fillStyle = 'rgba(41, 122, 46, 0.08)'; c.fill();
+    c.beginPath(); c.arc(100, cv.height - 100, 180, 0, Math.PI * 2); c.fillStyle = 'rgba(217, 119, 6, 0.08)'; c.fill();
+
+    // only draw the logo if it loaded successfully
+    if (imgLoaded) {
+      try {
+        c.save();
+        c.globalAlpha = 0.12;
+        c.translate(cv.width / 2, cv.height / 2);
+        c.rotate(-25 * Math.PI / 180);
+        c.drawImage(img, -250, -250, 500, 500);
+        c.restore();
+      } catch (err) {
+        // drawing failed (possible CORS taint) — fall back to continue rendering without logo
+        console.warn('Logo draw failed (CORS?), continuing without logo:', err);
+      }
+    }
+
+    // header bar & texts (kept same as original)
+    var bg = c.createLinearGradient(0, 0, cv.width, 0);
+    bg.addColorStop(0, '#297a2e'); bg.addColorStop(1, '#d97706');
+    c.fillStyle = bg; c.fillRect(0, 0, cv.width, 12);
+
+    c.fillStyle = '#297a2e'; c.font = 'bold 48px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
+    c.fillText('DATA KEPENDUDUKAN', cv.width / 2, 120);
+    c.fillStyle = '#0f172a'; c.font = 'bold 36px Comfortaa, Arial, sans-serif';
+    c.fillText('Kabupaten Musi Rawas Utara', cv.width / 2, 170);
+    c.fillStyle = '#64748b'; c.font = '24px Comfortaa, Arial, sans-serif';
+    c.fillText('Semester 1 - Tahun 2026', cv.width / 2, 210);
+
+    // divider and stats boxes (same content)
+    c.strokeStyle = 'rgba(41, 122, 46, 0.3)'; c.lineWidth = 2;
+    c.beginPath(); c.moveTo(150, 250); c.lineTo(cv.width - 150, 250); c.stroke();
+
+    c.fillStyle = 'rgba(41, 122, 46, 0.12)'; roundRect(c, 100, 290, cv.width - 200, 140, 20); c.fill();
+    c.fillStyle = '#64748b'; c.font = '22px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
+    c.fillText('TOTAL PENDUDUK', cv.width / 2, 340);
+    c.fillStyle = '#297a2e'; c.font = 'bold 64px Comfortaa, Arial, sans-serif';
+    c.fillText('208.652', cv.width / 2, 400);
+    c.fillStyle = '#64748b'; c.font = '22px Comfortaa, Arial, sans-serif';
+    c.fillText('jiwa', cv.width / 2, 425);
+
+    // male box
+    c.fillStyle = 'rgba(37, 99, 235, 0.10)'; roundRect(c, 100, 460, (cv.width - 220) / 2, 160, 20); c.fill();
+    c.fillStyle = '#2563eb'; c.font = 'bold 28px Comfortaa, Arial, sans-serif';
+    c.fillText('Laki-laki', 100 + (cv.width - 220) / 4, 510);
+    c.fillStyle = '#0f172a'; c.font = 'bold 48px Comfortaa, Arial, sans-serif';
+    c.fillText('106.208', 100 + (cv.width - 220) / 4, 570);
+    c.fillStyle = '#2563eb'; c.font = 'bold 24px Comfortaa, Arial, sans-serif';
+    c.fillText('50.90%', 100 + (cv.width - 220) / 4, 605);
+
+    // female box
+    c.fillStyle = 'rgba(219, 39, 119, 0.10)'; roundRect(c, 100 + (cv.width - 220) / 2 + 20, 460, (cv.width - 220) / 2, 160, 20); c.fill();
+    c.fillStyle = '#db2777'; c.font = 'bold 28px Comfortaa, Arial, sans-serif';
+    c.fillText('Perempuan', 100 + (cv.width - 220) / 2 + 20 + (cv.width - 220) / 4, 510);
+    c.fillStyle = '#0f172a'; c.font = 'bold 48px Comfortaa, Arial, sans-serif';
+    c.fillText('102.444', 100 + (cv.width - 220) / 2 + 20 + (cv.width - 220) / 4, 570);
+    c.fillStyle = '#db2777'; c.font = 'bold 24px Comfortaa, Arial, sans-serif';
+    c.fillText('49.10%', 100 + (cv.width - 220) / 2 + 20 + (cv.width - 220) / 4, 605);
+
+    // footer / source line
+    c.fillStyle = 'rgba(217, 119, 6, 0.12)'; roundRect(c, 100, 650, cv.width - 200, 100, 20); c.fill();
+    c.fillStyle = '#d97706'; c.font = 'bold 26px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
+    c.fillText('7 Kecamatan, 89 Desa dan Kelurahan', cv.width / 2, 710);
+
+    c.fillStyle = 'rgba(41, 122, 46, 0.08)'; roundRect(c, 100, 780, cv.width - 200, 120, 20); c.fill();
+    c.fillStyle = '#0f172a'; c.font = 'bold 22px Comfortaa, Arial, sans-serif'; c.textAlign = 'center';
+    c.fillText('Sumber: DUKCAPIL Musi Rawas Utara', cv.width / 2, 830);
+    c.fillStyle = '#297a2e'; c.font = 'bold 20px Comfortaa, Arial, sans-serif';
+    c.fillText('dukcapilmru-tech.github.io/layanan-informasi/', cv.width / 2, 870);
+
+    c.fillStyle = '#297a2e'; c.fillRect(0, cv.height - 12, cv.width, 12);
+
+    // export
+    try {
       generatedImageURL = cv.toDataURL('image/png');
       document.getElementById('previewImg').src = generatedImageURL;
       document.getElementById('imagePreview').classList.add('show');
-    };
-    img.onerror = function() { alert('Gagal memuat logo watermark. Silakan coba lagi.'); };
+    } catch (err) {
+      // toDataURL can fail if canvas was tainted by cross-origin image
+      console.warn('Cannot export image (canvas tainted by cross-origin resource).', err);
+      alert('Gagal membuat gambar karena kebijakan CORS pada logo. Coba gunakan logo dari domain yang sama atau tanpa watermark.');
+    }
+  }
+
+  img.onload = function() { renderCanvas(true); };
+  img.onerror = function() {
+    console.warn('Logo failed to load or CORS blocked; rendering without it.');
+    renderCanvas(false);
+  };
+
+  if (WATERMARK_LOGO) {
     img.src = WATERMARK_LOGO;
-  };
-  
-  window.downloadShareImage = function() {
-    if (!generatedImageURL) { generateShareImage(); return; }
-    var a = document.createElement('a');
-    a.href = generatedImageURL;
-    a.download = 'Data-Kependudukan-Musi-Rawas-Utara.png';
-    document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  };
+  } else {
+    // no logo known — render immediately without logo
+    renderCanvas(false);
+  }
+};
+
+// Ensure download works safely — if image not generated yet, call generate and return (user can then click download when preview shows)
+window.downloadShareImage = function() {
+  if (!generatedImageURL) { generateShareImage(); return; }
+  var a = document.createElement('a');
+  a.href = generatedImageURL;
+  a.download = 'Data-Kependudukan-Musi-Rawas-Utara.png';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+};
   
   window.closeImagePreview = function() { document.getElementById('imagePreview').classList.remove('show'); };
   
