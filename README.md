@@ -1,3 +1,4 @@
+<div size="100px">![DUKCAPIL](img/repository-open-graph-template.png)</div>
 <div align="center">
 
 # 🏛️ Dinas Kependudukan dan Pencatatan Sipil
@@ -113,7 +114,7 @@ Platform ini menyediakan akses informasi kependudukan yang meliputi:
 
 ## Kontribusi
 
-` @dukcapilmru-tech` `Tim IT Dukcapil MRU`
+` @dukcapilmru-tech` `Tim IT Dukcapil MRU` 
 
 ## 📜 Lisensi
 Proyek ini dilisensikan di bawah **Apache License 2.0** — lihat file **LICENSE** untuk detail lebih lanjut.
