@@ -114,7 +114,12 @@ Platform ini menyediakan akses informasi kependudukan yang meliputi:
 
 ` @dukcapilmru-tech` `Tim IT Dukcapil MRU` 
 
-![logo](img/HTML5-E34F26.svg)
+Dibuat dengan ❤️ oleh  Tim IT
+
+![logo](img/Made-in-Indonesia-red.svg)
+
+#### Bahasa yang di gunakan
+![logo](img/HTML5-E34F26.svg) ![logo](img/CSS3-1572B6.svg) ![logo](img/JavaScript-F7DF1E.svg)
 
 ## 📜 Lisensi
 Proyek ini dilisensikan di bawah **Apache License 2.0** — lihat file **LICENSE** untuk detail lebih lanjut.
