@@ -303,7 +303,7 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
           
           <button class="modal-share-image-btn" onclick="generateShareImage()">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            <div class="btn-text"><span class="btn-main">Bagikan sebagai Gambar</span><span class="btn-sub">Data dengan watermark logo</span></div>
+            <div class="btn-text"><span class="btn-main">Bagikan sebagai Gambar</span></div>
             <span class="btn-download">Unduh</span>
           </button>
         </div>
@@ -696,7 +696,7 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
   
   window.scrollToTop = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
-  window.openShareModal = function() { document.getElementById('shareModal').classList.add('active'); };
+window.openShareModal = function() { document.getElementById('shareModal').classList.add('active'); };
   window.closeShareModal = function() { document.getElementById('shareModal').classList.remove('active'); closeImagePreview(); };
   document.getElementById('shareModal').addEventListener('click', function(e) { if (e.target === this) closeShareModal(); });
   
