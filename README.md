@@ -116,7 +116,9 @@ Platform ini menyediakan akses informasi kependudukan yang meliputi:
 ` @dukcapilmru-tech` `Tim IT Dukcapil MRU`
 
 ## 📜 Lisensi
-Proyek ini dilisensikan di bawah Apache License 2.0 — lihat file LICENSE untuk detail lebih lanjut.
+Proyek ini dilisensikan di bawah **Apache License 2.0** — lihat file **LICENSE** untuk detail lebih lanjut.
+
+[![License](https://img.shields.io/github/license/dukcapilmru-tech/layanan-informasi?style=for-the-badge&color=red)](https://github.com/dukcapilmru-tech/layanan-informasi/blob/main/LICENSE)
 
 ### Untuk Pengembang
 
