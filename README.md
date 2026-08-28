@@ -1,9 +1,6 @@
 ![DUKCAPIL](img/open-graph-dukcapil.png)
 <div align="center">
 
-# 🏛️ Dinas Kependudukan dan Pencatatan Sipil
-## Kabupaten Musi Rawas Utara
-
 **Layanan Informasi Kependudukan Terintegrasi**
 ##### `Sumber Data Semester I | Data Kependudukan Kabupaten Musi Rawas Utara`
 
