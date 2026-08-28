@@ -1,7 +1,8 @@
 ![DUKCAPIL](img/open-graph-dukcapil.png)
-<div align="center">
 
+<div align="center">
 **Layanan Informasi Kependudukan Terintegrasi**
+
 ##### `Sumber Data Semester I | Data Kependudukan Kabupaten Musi Rawas Utara`
 
 ---
