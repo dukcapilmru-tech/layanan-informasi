@@ -111,7 +111,7 @@ Platform ini menyediakan akses informasi kependudukan yang meliputi:
 4. ✍️ Isi formulir dengan data yang valid
 5. 📤 Ajukan permohonan dan tunggu proses verifikasi
 
-## ©️ Kontribusi
+## Kontribusi
 
 ` @dukcapilmru-tech` `Tim IT Dukcapil MRU`
 
