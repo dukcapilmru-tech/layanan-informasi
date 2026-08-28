@@ -24,7 +24,7 @@
 - [Layanan Utama](#%EF%B8%8F-layanan-utama)
 - [Data Kependudukan](#-data-kependudukan)
 - [Cara Mengakses](#-cara-mengakses)
-- [Kontribusi](#-kontribusi)
+- [Kontribusi](#kontribusi)
 - [Lisensi](#-lisensi)
 
 ---
