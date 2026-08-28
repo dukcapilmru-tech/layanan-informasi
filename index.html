@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DUKCAPIL Musi Rawas Utara - Sistem Informasi Kependudukan Resmi</title>
+<title>DINAS DUKCAPIL Musi Rawas Utara - Sistem Informasi Kependudukan Resmi</title>
 <meta name="description" content="Sistem Informasi Resmi Dinas Kependudukan dan Pencatatan Sipil Kabupaten Musi Rawas Utara. Layanan Pendaftaran Penduduk, Pencatatan Sipil, dan Pengelolaan Informasi Administrasi Kependudukan.">
 <meta name="keywords" content="DUKCAPIL, Disdukcapil, Musi Rawas Utara, Muratara, Kependudukan, Pencatatan Sipil, Pendaftaran Penduduk, Akta Kelahiran, Akta Kematian, KTP, KK, Kartu Keluarga, Pindah Datang, Surat Pindah, Sumatera Selatan, Rupit, Sistem Informasi Kependudukan, Layanan Dukcapil">
 <meta name="author" content="Dinas Kependudukan dan Pencatatan Sipil Kabupaten Musi Rawas Utara">
@@ -35,7 +35,7 @@
 <link rel="icon" type="image/png" href="https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/341297e62bcb4779b046841371878240.png~tplv-0es2k971ck-image.image?rcl=2026082612455581185BECB434004B53A4&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788324357&x-signature=Xf1EFmqW6DEY10rPnc%2Bo0VBYw%2Fw%3D">
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"GovernmentOrganization","name":"Dinas Kependudukan dan Pencatatan Sipil Kabupaten Musi Rawas Utara","alternateName":"DUKCAPIL Musi Rawas Utara","url":"https://dukcapilmru-tech.github.io/layanan-informasi/","description":"Dinas Kependudukan dan Pencatatan Sipil Kabupaten Musi Rawas Utara menyelenggarakan urusan pemerintahan di bidang kependudukan dan pencatatan sipil.","address":{"@type":"PostalAddress","streetAddress":"Jl. Raya Lubuklinggau - Muara Beliti, Kec. Rupit","addressLocality":"Musi Rawas Utara","addressRegion":"Sumatera Selatan","postalCode":"31651","addressCountry":"ID"}}
+{"@context":"https://schema.org","@type":"GovernmentOrganization","name":"Dinas Kependudukan dan Pencatatan Sipil Kabupaten Musi Rawas Utara","alternateName":"DUKCAPIL Musi Rawas Utara","url":"https://dukcapilmru-tech.github.io/layanan-informasi/","description":"Dinas Kependudukan dan Pencatatan Sipil Kabupaten Musi Rawas Utara menyelenggarakan urusan pemerintahan di bidang kependudukan dan pencatatan sipil.","address":{"@type":"PostalAddress","streetAddress":"Jl. Lintas Sumatera - Desa Lawang Agung, Kec. Rupit","addressLocality":"Musi Rawas Utara","addressRegion":"Sumatera Selatan","postalCode":"31654","addressCountry":"ID"}}
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -216,35 +216,44 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
 .footer-stats span:hover{background:rgba(76,175,80,.3);transform:scale(1.05)}
 .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:var(--modal-overlay);backdrop-filter:blur(4px);z-index:100000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:all .3s}
 .modal-overlay.active{opacity:1;visibility:visible}
-.modal-content{background:var(--card);border-radius:20px;max-width:480px;width:100%;max-height:90vh;overflow-y:auto;position:relative;transform:scale(.9) translateY(20px);transition:transform .3s;box-shadow:0 25px 80px rgba(0,0,0,.3)}
+.modal-content{background:var(--card);border-radius:20px;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;transform:scale(.9) translateY(20px);transition:transform .3s}
 .modal-overlay.active .modal-content{transform:scale(1) translateY(0)}
 .modal-header{padding:24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
 .modal-header h3{font-size:1.2rem;font-weight:700;color:var(--text)}
-.modal-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--accent-soft);color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
-.modal-close:hover{background:var(--accent);color:#fff;transform:rotate(90deg)}
+.modal-close{width:36px;height:36px;border-radius:50%;border:none;background:var(--accent-soft);color:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:var(--accent);color:#fff}
 .modal-body{padding:24px}
 .modal-data-card{background:var(--accent-soft);border-radius:14px;padding:20px;margin-bottom:20px;border-left:4px solid var(--accent)}
-.modal-data-title{font-size:.85rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-bottom:12px}
-.modal-data-item{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed var(--border)}
+.modal-data-title{font-size:.85rem;font-weight:600;color:var(--accent);text-transform:uppercase;margin-bottom:12px}
+.modal-data-item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--border)}
 .modal-data-item:last-child{border-bottom:none}
-.modal-data-label{color:var(--muted);font-size:.88rem}
-.modal-data-value{font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
-.modal-share-title{font-weight:600;color:var(--text);margin-bottom:14px;font-size:.95rem}
-.modal-share-buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px}
+.modal-data-label{color:var(--muted)}
+.modal-data-value{font-weight:700}
+.modal-share-title{font-weight:600;margin-bottom:14px}
+.modal-share-buttons{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:10px;margin-bottom:16px}
 .modal-share-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 10px;border-radius:12px;font-size:.78rem;font-weight:600;cursor:pointer;transition:all .3s;border:none;font-family:'Comfortaa',cursive;color:#fff}
-.modal-share-btn:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.modal-share-btn:hover{transform:translateY(-3px)}
 .modal-share-btn svg{width:24px;height:24px;fill:currentColor}
-.modal-share-btn img{width:28px;height:28px;object-fit:contain;border-radius:4px}
 .modal-share-whatsapp{background:#25D366}
 .modal-share-facebook{background:#1877F2}
 .modal-share-twitter{background:#000}
 .modal-share-telegram{background:#0088cc}
 .modal-share-copy{background:var(--card);color:var(--text);border:2px solid var(--border)}
 .modal-share-copy:hover{border-color:var(--accent);color:var(--accent)}
-.modal-share-image{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;position:relative;overflow:hidden}
-.modal-share-image::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,.2),transparent);transform:translateX(-100%);transition:transform .6s}
-.modal-share-image:hover::before{transform:translateX(100%)}
-.modal-share-image:hover{box-shadow:0 8px 25px rgba(41,122,46,.4)}
+.modal-share-image-btn{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:16px;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;cursor:pointer;transition:all .3s;border:none;font-family:'Comfortaa',cursive;font-weight:600}
+.modal-share-image-btn:hover{transform:translateY(-3px);box-shadow:0 8px 25px rgba(41,122,46,.35)}
+.modal-share-image-btn svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2}
+.modal-share-image-btn .btn-text{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
+.modal-share-image-btn .btn-main{font-size:1rem;font-weight:700}
+.modal-share-image-btn .btn-sub{font-size:.75rem;opacity:.85;font-weight:400}
+.modal-share-image-btn .btn-download{margin-left:auto;background:rgba(255,255,255,.2);padding:8px 14px;border-radius:8px;font-size:.8rem}
+.modal-image-preview{margin-top:16px;border-radius:12px;overflow:hidden;border:2px solid var(--border);display:none}
+.modal-image-preview.show{display:block;animation:fadeUp .4s ease}
+.modal-image-preview img{width:100%;height:auto;display:block}
+.modal-image-preview-actions{display:flex;gap:10px;padding:12px;background:var(--accent-soft);border-top:1px solid var(--border)}
+.modal-image-preview-actions button{flex:1;padding:10px;border-radius:8px;border:none;font-family:'Comfortaa',cursive;font-weight:600;font-size:.82rem;cursor:pointer}
+.modal-image-preview-actions .btn-download-img{background:var(--accent);color:#fff}
+.modal-image-preview-actions .btn-close-preview{background:var(--card);color:var(--text);border:1px solid var(--border)}
 .back-to-top{position:fixed;bottom:24px;right:24px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 25px rgba(41,122,46,.4);transition:all .4s;z-index:9999;opacity:0;visibility:hidden;transform:translateY(20px) scale(.8)}
 .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
 .back-to-top:hover{transform:translateY(-6px) scale(1.05);box-shadow:0 12px 35px rgba(41,122,46,.5)}
@@ -306,15 +315,23 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
         </div>
         <div class="modal-share-title">Bagikan ke:</div>
         <div class="modal-share-buttons">
-          <button class="modal-share-btn modal-share-whatsapp" onclick="shareToWhatsApp()"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</button>
+          <button class="modal-share-btn modal-share-whatsapp" onclick="shareToWhatsApp()"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>WhatsApp</button>
           <button class="modal-share-btn modal-share-facebook" onclick="shareToFacebook()"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</button>
           <button class="modal-share-btn modal-share-twitter" onclick="shareToTwitter()"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>X</button>
-          <button class="modal-share-btn modal-share-telegram" onclick="shareToTelegram()"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</button>
+          <button class="modal-share-btn modal-share-telegram" onclick="shareToTelegram()"><svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram</button>
           <button class="modal-share-btn modal-share-copy" onclick="copyShareText()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Salin</button>
-          <button class="modal-share-btn modal-share-image" onclick="downloadLogoImage()" title="Unduh Gambar Logo">
-            <img src="https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/8e13268160934eecb83846530c0c09c1.png~tplv-0es2k971ck-image.image?rcl=20260828111207F574C65F3D3C800512E42&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788491528&x-signature=u%2FQqqoEtC2HZAbTyr9bMfllnPyw%3D" alt="Logo Watermark" onerror="this.style.display='none'" draggable="false">
-            <span style="font-size:0.78rem;font-weight:600;">Unduh Gambar</span>
+          <button class="modal-share-image-btn" onclick="generateShareImage()">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <div class="btn-text"><span class="btn-main">Bagikan sebagai Gambar</span></div>
+            <span class="btn-download">Unduh</span>
           </button>
+        </div>
+        <div class="modal-image-preview" id="imagePreview">
+          <img id="previewImg" alt="Preview Gambar">
+          <div class="modal-image-preview-actions">
+            <button class="btn-download-img" onclick="downloadShareImage()">Unduh Gambar</button>
+            <button class="btn-close-preview" onclick="closeImagePreview()">Tutup</button>
+          </div>
         </div>
       </div>
     </div>
@@ -569,6 +586,8 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
 <script>
 (function(){
   var LOADING_SPEED = 60;
+  var generatedImageURL = null;
+  var WATERMARK_LOGO = 'https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/8e13268160934eecb83846530c0c09c1.png~tplv-0es2k971ck-image.image?rcl=20260828111207F574C65F3D3C800512E4&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788491528&x-signature=u%2FQqqoEtC2HZAbTyr9bMfllnPyw%3D';
   
   document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert('Larangan: Inspeksi halaman web tidak diizinkan.'); return false; });
   document.addEventListener('keydown', function(e) {
@@ -698,32 +717,176 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
   
   window.scrollToTop = function() { window.scrollTo({ top: 0, behavior: 'smooth' }); };
   
-  window.openShareModal = function() { document.getElementById('shareModal').classList.add('active'); };
-  window.closeShareModal = function() { document.getElementById('shareModal').classList.remove('active'); };
+window.openShareModal = function() { document.getElementById('shareModal').classList.add('active'); };
+  window.closeShareModal = function() { document.getElementById('shareModal').classList.remove('active'); closeImagePreview(); };
   document.getElementById('shareModal').addEventListener('click', function(e) { if (e.target === this) closeShareModal(); });
   
   var shareText = 'Data Kependudukan Semester 1 Kabupaten Musi Rawas Utara:\n\n- Total Penduduk: 208.652 jiwa\n- Laki-laki: 106.208\n- Perempuan: 102.444\n- 7 Kecamatan, 89 Desa & Kelurahan\n\nSumber: DUKCAPIL Musi Rawas Utara\nWebsite: https://dukcapilmru-tech.github.io/layanan-informasi/';
-  
   window.shareToWhatsApp = function() { window.open('https://wa.me/?text=' + encodeURIComponent(shareText), '_blank'); };
   window.shareToFacebook = function() { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://dukcapilmru-tech.github.io/layanan-informasi/'), '_blank'); };
   window.shareToTwitter = function() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText), '_blank'); };
   window.shareToTelegram = function() { window.open('https://t.me/share/url?url=' + encodeURIComponent('https://dukcapilmru-tech.github.io/layanan-informasi/') + '&text=' + encodeURIComponent(shareText), '_blank'); };
-  window.copyShareText = function() {
-    navigator.clipboard.writeText(shareText).then(function() { alert('Data berhasil disalin ke clipboard!'); }).catch(function() { alert('Gagal menyalin data'); });
+  window.copyShareText = function() { navigator.clipboard.writeText(shareText).then(function() { alert('Data berhasil disalin!'); }).catch(function() { alert('Gagal menyalin data'); }); };
+  
+  function roundRect(c, x, y, w, h, r) {
+    c.beginPath();
+    c.moveTo(x + r, y);
+    c.lineTo(x + w - r, y);
+    c.quadraticCurveTo(x + w, y, x + w, y + r);
+    c.lineTo(x + w, y + h - r);
+    c.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    c.lineTo(x + r, y + h);
+    c.quadraticCurveTo(x, y + h, x, y + h - r);
+    c.lineTo(x, y + r);
+    c.quadraticCurveTo(x, y, x + r, y);
+    c.closePath();
+  }
+  
+  window.generateShareImage = function() {
+    var img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function() {
+      var canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1080;
+      var c = canvas.getContext('2d');
+      
+      var grad = c.createLinearGradient(0, 0, canvas.width, canvas.height);
+      grad.addColorStop(0, '#faf9f4');
+      grad.addColorStop(1, '#e8f0e9');
+      c.fillStyle = grad;
+      c.fillRect(0, 0, canvas.width, canvas.height);
+      
+      c.beginPath();
+      c.arc(canvas.width - 100, 100, 200, 0, Math.PI * 2);
+      c.fillStyle = 'rgba(41, 122, 46, 0.08)';
+      c.fill();
+      c.beginPath();
+      c.arc(100, canvas.height - 100, 180, 0, Math.PI * 2);
+      c.fillStyle = 'rgba(217, 119, 6, 0.08)';
+      c.fill();
+      
+      c.save();
+      c.globalAlpha = 0.12;
+      c.translate(canvas.width / 2, canvas.height / 2);
+      c.rotate(-25 * Math.PI / 180);
+      c.drawImage(img, -250, -250, 500, 500);
+      c.restore();
+      
+      var borderGrad = c.createLinearGradient(0, 0, canvas.width, 0);
+      borderGrad.addColorStop(0, '#297a2e');
+      borderGrad.addColorStop(1, '#d97706');
+      c.fillStyle = borderGrad;
+      c.fillRect(0, 0, canvas.width, 12);
+      
+      c.fillStyle = '#297a2e';
+      c.font = 'bold 48px Comfortaa, Arial, sans-serif';
+      c.textAlign = 'center';
+      c.fillText('DATA KEPENDUDUKAN', canvas.width / 2, 120);
+      c.fillStyle = '#0f172a';
+      c.font = 'bold 36px Comfortaa, Arial, sans-serif';
+      c.fillText('Kabupaten Musi Rawas Utara', canvas.width / 2, 170);
+      c.fillStyle = '#64748b';
+      c.font = '24px Comfortaa, Arial, sans-serif';
+      c.fillText('Semester 1 - Tahun 2026', canvas.width / 2, 210);
+      
+      c.strokeStyle = 'rgba(41, 122, 46, 0.3)';
+      c.lineWidth = 2;
+      c.beginPath();
+      c.moveTo(150, 250);
+      c.lineTo(canvas.width - 150, 250);
+      c.stroke();
+      
+      c.fillStyle = 'rgba(41, 122, 46, 0.12)';
+      roundRect(c, 100, 290, canvas.width - 200, 140, 20);
+      c.fill();
+      c.fillStyle = '#64748b';
+      c.font = '22px Comfortaa, Arial, sans-serif';
+      c.textAlign = 'center';
+      c.fillText('TOTAL PENDUDUK', canvas.width / 2, 340);
+      c.fillStyle = '#297a2e';
+      c.font = 'bold 64px Comfortaa, Arial, sans-serif';
+      c.fillText('208.652', canvas.width / 2, 400);
+      c.fillStyle = '#64748b';
+      c.font = '22px Comfortaa, Arial, sans-serif';
+      c.fillText('jiwa', canvas.width / 2, 425);
+      
+      var cardW = (canvas.width - 220) / 2;
+      c.fillStyle = 'rgba(37, 99, 235, 0.10)';
+      roundRect(c, 100, 460, cardW, 160, 20);
+      c.fill();
+      c.fillStyle = '#2563eb';
+      c.font = 'bold 28px Comfortaa, Arial, sans-serif';
+      c.fillText('Laki-laki', 100 + cardW / 2, 510);
+      c.fillStyle = '#0f172a';
+      c.font = 'bold 48px Comfortaa, Arial, sans-serif';
+      c.fillText('106.208', 100 + cardW / 2, 570);
+      c.fillStyle = '#2563eb';
+      c.font = 'bold 24px Comfortaa, Arial, sans-serif';
+      c.fillText('50.90%', 100 + cardW / 2, 605);
+      
+      c.fillStyle = 'rgba(219, 39, 119, 0.10)';
+      roundRect(c, 100 + cardW + 20, 460, cardW, 160, 20);
+      c.fill();
+      c.fillStyle = '#db2777';
+      c.font = 'bold 28px Comfortaa, Arial, sans-serif';
+      c.fillText('Perempuan', 100 + cardW + 20 + cardW / 2, 510);
+      c.fillStyle = '#0f172a';
+      c.font = 'bold 48px Comfortaa, Arial, sans-serif';
+      c.fillText('102.444', 100 + cardW + 20 + cardW / 2, 570);
+      c.fillStyle = '#db2777';
+      c.font = 'bold 24px Comfortaa, Arial, sans-serif';
+      c.fillText('49.10%', 100 + cardW + 20 + cardW / 2, 605);
+      
+      c.fillStyle = 'rgba(217, 119, 6, 0.12)';
+      roundRect(c, 100, 650, canvas.width - 200, 100, 20);
+      c.fill();
+      c.fillStyle = '#d97706';
+      c.font = 'bold 24px Comfortaa, Arial, sans-serif';
+      c.fillText('WILAYAH ADMINISTRASI', canvas.width / 2, 695);
+      c.fillStyle = '#0f172a';
+      c.font = 'bold 32px Comfortaa, Arial, sans-serif';
+      c.fillText('7 Kecamatan, 89 Desa & Kelurahan', canvas.width / 2, 735);
+      
+      c.fillStyle = 'rgba(41, 122, 46, 0.08)';
+      roundRect(c, 100, 780, canvas.width - 200, 120, 20);
+      c.fill();
+      c.fillStyle = '#0f172a';
+      c.font = 'bold 22px Comfortaa, Arial, sans-serif';
+      c.fillText('Sumber: DUKCAPIL Musi Rawas Utara', canvas.width / 2, 830);
+      c.fillStyle = '#64748b';
+      c.font = '18px Comfortaa, Arial, sans-serif';
+      c.fillText('Website: dukcapilmru-tech.github.io/layanan-informasi/', canvas.width / 2, 865);
+      
+      var footerGrad = c.createLinearGradient(0, canvas.height - 60, 0, canvas.height);
+      footerGrad.addColorStop(0, '#297a2e');
+      footerGrad.addColorStop(1, '#1a5c1e');
+      c.fillStyle = footerGrad;
+      c.fillRect(0, canvas.height - 60, canvas.width, 60);
+      c.fillStyle = '#ffffff';
+      c.font = 'bold 20px Comfortaa, Arial, sans-serif';
+      c.fillText('DINAS KEPENDUDUKAN DAN PENCATATAN SIPIL', canvas.width / 2, canvas.height - 25);
+      
+      generatedImageURL = canvas.toDataURL('image/png');
+      document.getElementById('previewImg').src = generatedImageURL;
+      document.getElementById('imagePreview').classList.add('show');
+    };
+    img.onerror = function() { alert('Gagal memuat logo watermark. Silakan coba lagi.'); };
+    img.src = WATERMARK_LOGO;
   };
   
-  // ===== TOMBOL BARU: Unduh Gambar Logo dengan Watermark =====
-  window.downloadLogoImage = function() {
-    var logoUrl = 'https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/8e13268160934eecb83846530c0c09c1.png~tplv-0es2k971ck-image.image?rcl=20260828111207F574C65F3D3C800512E42&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788491528&x-signature=u%2FQqqoEtC2HZAbTyr9bMfllnPyw%3D';
-    var link = document.createElement('a');
-    link.href = logoUrl;
-    link.download = 'DUKCAPIL-Musi-Rawas-Utara-Logo-Watermark.png';
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  window.downloadShareImage = function() {
+    if (!generatedImageURL) { generateShareImage(); return; }
+    var a = document.createElement('a');
+    a.href = generatedImageURL;
+    a.download = 'Data-Kependudukan-Musi-Rawas-Utara.png';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
+  
+  window.closeImagePreview = function() { document.getElementById('imagePreview').classList.remove('show'); };
+  
   
   function checkOfficeStatus() {
     var now = new Date();
