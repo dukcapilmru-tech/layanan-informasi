@@ -520,10 +520,16 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
         <div style="text-align:center;margin-bottom:32px;"><p style="font-family:monospace;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:10px;font-weight:600;">Informasi Layanan</p><h2 style="font-size:1.8rem;font-weight:700;color:var(--text);margin-bottom:8px;">Jadwal & Kontak</h2><p style="color:var(--muted);font-size:0.9rem;">Waktu operasional dan informasi kontak kami</p></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;">
           <div class="rounded-2xl p-6" style="background:var(--card);border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.06);">
-            <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><div style="width:50px;height:50px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h3 style="font-size:1.1rem;font-weight:700;color:var(--text);">Jam Layanan</h3><p style="color:var(--muted);font-size:0.82rem;">Status saat ini</p></div></div>
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><div style="width:50px;height:50px;border-radius:12px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><h3 style="font-size:1.1rem;font-weight:700;color:var(--text);">Jam Layanan</h3><p style="color:var(--muted);font-size:0.82rem;">Status diperbarui secara real-time</p></div></div>
             <div id="officeStatus" class="status-badge status-open"><span class="status-dot"></span><span id="statusText">Memeriksa status...</span></div>
-            <div id="nextSchedule" style="font-size:0.85rem;color:var(--muted);margin-bottom:16px;"></div>
-            <div><div class="schedule-item"><span class="schedule-day">Senin - Kamis</span><span class="schedule-time">08.00 - 16.00 WIB</span></div><div class="schedule-item"><span class="schedule-day">Jum'at</span><span class="schedule-time">08.00 - 16.30 WIB</span></div><div class="schedule-item"><span class="schedule-day">Istirahat</span><span class="schedule-time">12.00 - 13.00 WIB</span></div><div class="schedule-item"><span class="schedule-day">Sabtu - Minggu</span><span class="schedule-closed">TUTUP</span></div><div class="schedule-item"><span class="schedule-day">Hari Libur Nasional</span><span class="schedule-closed">TUTUP</span></div></div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;padding:12px;border-radius:10px;background:rgba(128,128,128,.04);">
+              <div style="flex:1;min-width:120px;"><p style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:2px;">Waktu</p><p id="currentTimeDisplay" style="font-weight:700;color:var(--text);font-variant-numeric:tabular-nums;">--:--:-- WIB</p></div>
+              <div style="flex:1;min-width:140px;"><p style="font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:2px;">Hari</p><p id="currentDayDisplay" style="font-weight:700;color:var(--text);">-</p></div>
+            </div>
+            <div id="nextSchedule" style="font-size:0.85rem;color:var(--muted);margin-bottom:16px;padding:10px 14px;border-radius:8px;background:var(--accent-soft);border-left:3px solid var(--accent);"></div>
+            <div id="holidayNotice" style="display:none;font-size:0.85rem;color:#dc2626;margin-bottom:16px;padding:10px 14px;border-radius:8px;background:rgba(220,38,38,.08);border-left:3px solid #dc2626;font-weight:600;"></div>
+            <div><div id="row-senin" class="schedule-item" style="padding:12px 8px;border-radius:8px;transition:all .3s;"><span class="schedule-day">Senin - Kamis</span><span class="schedule-time">08.00 - 16.00 WIB</span></div><div id="row-jumat" class="schedule-item" style="padding:12px 8px;border-radius:8px;transition:all .3s;"><span class="schedule-day">Jum'at</span><span class="schedule-time">08.00 - 16.30 WIB</span></div><div id="row-istirahat" class="schedule-item" style="padding:12px 8px;border-radius:8px;transition:all .3s;"><span class="schedule-day">Istirahat</span><span class="schedule-time">12.00 - 13.00 WIB</span></div><div id="row-weekend" class="schedule-item" style="padding:12px 8px;border-radius:8px;transition:all .3s;"><span class="schedule-day">Sabtu - Minggu</span><span class="schedule-closed">TUTUP</span></div><div id="row-libur" class="schedule-item" style="padding:12px 8px;border-radius:8px;transition:all .3s;"><span class="schedule-day">Hari Libur Nasional</span><span class="schedule-closed">TUTUP</span></div></div>
+            <div style="margin-top:16px;padding-top:16px;border-top:1px dashed var(--border);"><p style="font-size:.78rem;color:var(--muted);font-weight:600;margin-bottom:8px;">Libur Nasional 2026:</p><div id="holidayList" style="font-size:.75rem;color:var(--muted);max-height:100px;overflow-y:auto;"></div><p id="nextHolidayInfo" style="font-size:.72rem;color:var(--accent);margin-top:8px;font-weight:600;"></p></div>
           </div>
           <div id="kontak" class="rounded-2xl p-6" style="background:var(--card);border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.06);">
             <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px;"><div style="width:50px;height:50px;border-radius:12px;background:var(--accent2-soft);display:flex;align-items:center;justify-content:center;color:var(--accent2);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><h3 style="font-size:1.1rem;font-weight:700;color:var(--text);">Hubungi Kami</h3><p style="color:var(--muted);font-size:0.82rem;">Informasi kontak</p></div></div>
@@ -585,7 +591,7 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
 
 <script>
 (function(){
-  var LOADING_SPEED = 60;
+  var LOADING_SPEED = 20;
   var generatedImageURL = null;
   var WATERMARK_LOGO = 'https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/8e13268160934eecb83846530c0c09c1.png~tplv-0es2k971ck-image.image?rcl=20260828111207F574C65F3D3C800512E4&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788491528&x-signature=u%2FQqqoEtC2HZAbTyr9bMfllnPyw%3D';
   
@@ -721,7 +727,7 @@ window.openShareModal = function() { document.getElementById('shareModal').class
   window.closeShareModal = function() { document.getElementById('shareModal').classList.remove('active'); closeImagePreview(); };
   document.getElementById('shareModal').addEventListener('click', function(e) { if (e.target === this) closeShareModal(); });
   
-  var shareText = 'Data Kependudukan Semester 1 Kabupaten Musi Rawas Utara:\n\n- Total Penduduk: 208.652 jiwa\n- Laki-laki: 106.208\n- Perempuan: 102.444\n- 7 Kecamatan, 89 Desa & Kelurahan\n\nSumber: DUKCAPIL Musi Rawas Utara\nWebsite: https://dukcapilmru-tech.github.io/layanan-informasi/';
+  var shareText = 'Data Kependudukan Semester 1 Kabupaten Musi Rawas Utara:\n\n- Total Penduduk: 208.652 jiwa\n- Laki-laki: 106.208\n- Perempuan: 102.444\n- 7 Kecamatan, 89 Desa & Kelurahan\n\nSumber: DUKCAPIL Kab. Musi Rawas Utara\nWebsite: https://dukcapilmru-tech.github.io/layanan-informasi/';
   window.shareToWhatsApp = function() { window.open('https://wa.me/?text=' + encodeURIComponent(shareText), '_blank'); };
   window.shareToFacebook = function() { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent('https://dukcapilmru-tech.github.io/layanan-informasi/'), '_blank'); };
   window.shareToTwitter = function() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText), '_blank'); };
@@ -888,41 +894,213 @@ window.openShareModal = function() { document.getElementById('shareModal').class
   window.closeImagePreview = function() { document.getElementById('imagePreview').classList.remove('show'); };
   
   
+  // ============================================
+  // DAFTAR LIBUR NASIONAL 2026 (SKB 3 MENTERI)
+  // ============================================
+  var nationalHolidays = {
+    '2026-01-01': 'Tahun Baru 2026 Masehi',
+    '2026-01-16': 'Isra Mikraj Nabi Muhammad SAW',
+    '2026-02-17': 'Tahun Baru Imlek 2577 Kongzili',
+    '2026-03-19': 'Hari Suci Nyepi (Tahun Baru Saka 1948)',
+    '2026-03-21': 'Idulfitri 1447 H',
+    '2026-03-22': 'Idulfitri 1447 H',
+    '2026-04-03': 'Wafat Yesus Kristus',
+    '2026-04-05': 'Kebangkitan Yesus Kristus (Paskah)',
+    '2026-05-01': 'Hari Buruh Internasional',
+    '2026-05-14': 'Kenaikan Yesus Kristus',
+    '2026-05-27': 'Iduladha 1447 H',
+    '2026-05-31': 'Hari Raya Waisak 2570 BE',
+    '2026-06-01': 'Hari Lahir Pancasila',
+    '2026-06-16': '1 Muharam Tahun Baru Islam 1448 H',
+    '2026-08-17': 'Proklamasi Kemerdekaan RI',
+    '2026-08-25': 'Maulid Nabi Muhammad SAW',
+    '2026-12-25': 'Kelahiran Yesus Kristus (Natal)'
+  };
+  
+  var collectiveLeave = {
+    '2026-02-16': 'Cuti Bersama Imlek',
+    '2026-03-18': 'Cuti Bersama Nyepi',
+    '2026-03-20': 'Cuti Bersama Idulfitri',
+    '2026-03-23': 'Cuti Bersama Idulfitri',
+    '2026-03-24': 'Cuti Bersama Idulfitri',
+    '2026-05-15': 'Cuti Bersama Kenaikan Yesus',
+    '2026-05-28': 'Cuti Bersama Iduladha',
+    '2026-12-24': 'Cuti Bersama Natal'
+  };
+  
+  var allHolidays = {};
+  for(var key in nationalHolidays) allHolidays[key] = nationalHolidays[key];
+  for(var key in collectiveLeave) allHolidays[key] = collectiveLeave[key];
+  
+  var dayNames = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'];
+  var monthNames = ['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'];
+  
+  function updateClockDisplay() {
+    var now = new Date();
+    var timeStr = String(now.getHours()).padStart(2, '0') + ':' + 
+                  String(now.getMinutes()).padStart(2, '0') + ':' + 
+                  String(now.getSeconds()).padStart(2, '0') + ' WIB';
+    var dayStr = dayNames[now.getDay()] + ', ' + now.getDate() + ' ' + monthNames[now.getMonth()];
+    var timeEl = document.getElementById('currentTimeDisplay');
+    var dayEl = document.getElementById('currentDayDisplay');
+    if(timeEl) timeEl.textContent = timeStr;
+    if(dayEl) dayEl.textContent = dayStr;
+  }
+  
+  function highlightActiveRow(rowId) {
+    var rows = ['row-senin','row-jumat','row-istirahat','row-weekend','row-libur'];
+    rows.forEach(function(id) {
+      var el = document.getElementById(id);
+      if(el) {
+        el.style.background = '';
+        el.style.borderLeft = '';
+        el.style.paddingLeft = '8px';
+      }
+    });
+    var activeEl = document.getElementById(rowId);
+    if(activeEl) {
+      activeEl.style.background = 'var(--accent-soft)';
+      activeEl.style.borderLeft = '3px solid var(--accent)';
+      activeEl.style.paddingLeft = '5px';
+    }
+  }
+  
+  function renderHolidayList() {
+    var container = document.getElementById('holidayList');
+    var nextInfo = document.getElementById('nextHolidayInfo');
+    if(!container) return;
+    
+    var now = new Date();
+    var todayStr = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+    var todayDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    
+    var sorted = Object.keys(nationalHolidays).sort();
+    var html = '';
+    var nextDate = null;
+    var nextName = '';
+    
+    sorted.forEach(function(dateKey) {
+      var parts = dateKey.split('-');
+      var hDate = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
+      var isPast = hDate < todayDate;
+      var isToday = dateKey === todayStr;
+      
+      if(!isPast && !isToday && !nextDate) {
+        nextDate = hDate;
+        nextName = nationalHolidays[dateKey];
+      }
+      
+      var opacity = isPast ? '0.5' : '1';
+      var color = isToday ? 'var(--accent)' : 'var(--muted)';
+      var weight = isToday ? '700' : '400';
+      var marker = isToday ? ' ●' : '';
+      
+      html += '<div style="opacity:' + opacity + ';color:' + color + ';font-weight:' + weight + ';padding:2px 0;">' + parseInt(parts[2]) + '/' + parts[1] + ' - ' + nationalHolidays[dateKey] + marker + '</div>';
+    });
+    
+    container.innerHTML = html;
+    
+    if(nextInfo && nextDate) {
+      var diffTime = nextDate - todayDate;
+      var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      nextInfo.textContent = 'Libur selanjutnya: ' + nextName + ' (' + dayNames[nextDate.getDay()] + ', ' + nextDate.getDate() + ' ' + monthNames[nextDate.getMonth()] + ') - ' + diffDays + ' hari lagi';
+    } else if(nextInfo) {
+      nextInfo.textContent = 'Tidak ada lagi libur nasional di tahun 2026';
+    }
+  }
+  
   function checkOfficeStatus() {
     var now = new Date();
     var day = now.getDay();
     var hours = now.getHours();
     var minutes = now.getMinutes();
     var totalMinutes = hours * 60 + minutes;
+    
+    var dateStr = now.getFullYear() + '-' + 
+                  String(now.getMonth() + 1).padStart(2, '0') + '-' + 
+                  String(now.getDate()).padStart(2, '0');
+    
     var statusEl = document.getElementById('officeStatus');
     var statusText = document.getElementById('statusText');
     var nextSchedule = document.getElementById('nextSchedule');
+    var holidayNotice = document.getElementById('holidayNotice');
+    
     statusEl.classList.remove('status-open', 'status-closed', 'status-break');
-    if (day === 0 || day === 6) {
+    
+    // 1. CEK LIBUR NASIONAL
+    if(allHolidays[dateStr]) {
+      statusEl.classList.add('status-closed');
+      statusText.textContent = 'LIBUR';
+      if(nextSchedule) nextSchedule.textContent = 'Kantor tutup hari ini';
+      if(holidayNotice) {
+        holidayNotice.style.display = 'block';
+        holidayNotice.textContent = '📅 ' + allHolidays[dateStr];
+      }
+      highlightActiveRow('row-libur');
+      return;
+    } else if(holidayNotice) {
+      holidayNotice.style.display = 'none';
+    }
+    
+    // 2. CEK WEEKEND
+    if(day === 0 || day === 6) {
       statusEl.classList.add('status-closed');
       statusText.textContent = 'TUTUP';
-      nextSchedule.textContent = 'Buka kembali Senin pukul 08.00 WIB';
-    } else {
-      var endWork = (day === 5) ? 990 : 960;
-      if (totalMinutes >= 720 && totalMinutes < 780) {
-        statusEl.classList.add('status-break');
-        statusText.textContent = 'ISTIRAHAT';
-        nextSchedule.textContent = 'Buka kembali pukul 13.00 WIB';
-      } else if (totalMinutes >= 480 && totalMinutes < endWork) {
-        statusEl.classList.add('status-open');
-        statusText.textContent = 'BUKA';
-        var closeHour = day === 5 ? '16.30' : '16.00';
-        nextSchedule.textContent = 'Tutup pukul ' + closeHour + ' WIB';
-      } else {
-        statusEl.classList.add('status-closed');
-        statusText.textContent = 'TUTUP';
-        if (totalMinutes < 480) nextSchedule.textContent = 'Buka pukul 08.00 WIB';
-        else nextSchedule.textContent = day === 5 ? 'Buka kembali Senin pukul 08.00 WIB' : 'Buka besok pukul 08.00 WIB';
+      if(nextSchedule) nextSchedule.textContent = 'Hari ' + dayNames[day] + ' - Buka kembali Senin pukul 08.00 WIB';
+      highlightActiveRow('row-weekend');
+      return;
+    }
+    
+    // 3. CEK ISTIRAHAT (12:00 - 13:00)
+    if(totalMinutes >= 720 && totalMinutes < 780) {
+      statusEl.classList.add('status-break');
+      statusText.textContent = 'ISTIRAHAT';
+      var minsUntil = 780 - totalMinutes;
+      if(nextSchedule) nextSchedule.textContent = 'Istirahat jam makan siang. Buka kembali pukul 13.00 WIB (' + minsUntil + ' menit lagi)';
+      highlightActiveRow('row-istirahat');
+      return;
+    }
+    
+    // 4. CEK JAM KERJA
+    var endWork = (day === 5) ? 990 : 960; // Jumat 16:30 (990 menit), lainnya 16:00 (960 menit)
+    
+    if(totalMinutes >= 480 && totalMinutes < endWork) {
+      statusEl.classList.add('status-open');
+      statusText.textContent = 'BUKA';
+      var closeHour = day === 5 ? '16.30' : '16.00';
+      var minsUntilClose = endWork - totalMinutes;
+      var hLeft = Math.floor(minsUntilClose / 60);
+      var mLeft = minsUntilClose % 60;
+      if(nextSchedule) {
+        if(hLeft > 0) {
+          nextSchedule.textContent = 'Tutup pukul ' + closeHour + ' WIB (' + hLeft + ' jam ' + mLeft + ' menit lagi)';
+        } else {
+          nextSchedule.textContent = 'Tutup pukul ' + closeHour + ' WIB (' + mLeft + ' menit lagi)';
+        }
       }
+      highlightActiveRow(day === 5 ? 'row-jumat' : 'row-senin');
+    } else {
+      statusEl.classList.add('status-closed');
+      statusText.textContent = 'TUTUP';
+      if(totalMinutes < 480) {
+        if(nextSchedule) nextSchedule.textContent = 'Belum masuk jam kerja. Buka pukul 08.00 WIB';
+      } else {
+        if(day === 5) {
+          if(nextSchedule) nextSchedule.textContent = 'Layanan telah ditutup. Buka kembali Senin pukul 08.00 WIB';
+        } else {
+          if(nextSchedule) nextSchedule.textContent = 'Layanan telah ditutup. Buka besok pukul 08.00 WIB';
+        }
+      }
+      highlightActiveRow(day === 5 ? 'row-jumat' : 'row-senin');
     }
   }
+  
+  updateClockDisplay();
+  renderHolidayList();
   checkOfficeStatus();
-  setInterval(checkOfficeStatus, 60000);
+  setInterval(updateClockDisplay, 1000);
+  setInterval(checkOfficeStatus, 30000);
+  setInterval(renderHolidayList, 3600000);
   
   var fpContainer = document.getElementById('footerParticles');
   for (var i = 0; i < 15; i++) {
