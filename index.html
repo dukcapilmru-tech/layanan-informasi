@@ -47,6 +47,14 @@
 [data-theme="dark"]{--bg:#0f1a14;--card:#1a2a20;--text:#e8f0e9;--muted:#8ba090;--accent:#4caf50;--accent-soft:rgba(76,175,80,0.18);--accent2:#f59e0b;--accent2-soft:rgba(245,158,11,0.18);--border:rgba(232,240,233,0.1);--shadow:0 20px 60px rgba(0,0,0,0.4);--glow:rgba(76,175,80,0.4);--watermark-opacity:0.08;--modal-overlay:rgba(0,0,0,0.7);--footer-bg-1:#0a120e;--footer-bg-2:#0f1a14}
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{width:100%;overflow-x:hidden;scroll-behavior:smooth}
+
+/* Custom Scrollbar - Holiday List */
+#holidayList{scrollbar-width:thin;scrollbar-color:var(--accent) transparent}
+#holidayList::-webkit-scrollbar{width:6px}
+#holidayList::-webkit-scrollbar-track{background:transparent;border-radius:10px}
+#holidayList::-webkit-scrollbar-thumb{background:linear-gradient(180deg,var(--accent),var(--accent2));border-radius:10px;transition:all .3s}
+#holidayList::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--accent2),var(--accent));box-shadow:0 0 10px var(--glow)}
+#holidayList::-webkit-scrollbar-button{display:none}
 body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(--text);transition:background .5s,color .5s;line-height:1.6;position:relative}
 .watermark{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) rotate(-25deg);width:80%;max-width:500px;opacity:var(--watermark-opacity);pointer-events:none;z-index:1;user-select:none}
 .watermark img{width:100%;height:auto;transition:opacity .5s}
@@ -593,6 +601,7 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
 (function(){
   var LOADING_SPEED = 20;
   var generatedImageURL = null;
+  var pieChartInstance = null;
   var WATERMARK_LOGO = 'https://p16-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/8e13268160934eecb83846530c0c09c1.png~tplv-0es2k971ck-image.image?rcl=20260828111207F574C65F3D3C800512E4&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788491528&x-signature=u%2FQqqoEtC2HZAbTyr9bMfllnPyw%3D';
   
   document.addEventListener('contextmenu', function(e) { e.preventDefault(); alert('Larangan: Inspeksi halaman web tidak diizinkan.'); return false; });
@@ -648,6 +657,10 @@ body{font-family:'Comfortaa',cursive,sans-serif;background:var(--bg);color:var(-
       logoLight.classList.remove('hidden');
       logoDark.classList.add('hidden');
       watermarkImg.src = 'https://p19-flow-image-sign.ibyteimg.com/tos-mya-i-uo7y4d541q/c5fdc2bc881d4abf9d53a8db3cdbdb7e.png~tplv-0es2k971ck-image.image?rcl=20260826134711B88D5AE8ECF2EF572E42&rk3s=8e244e95&rrcfp=935dee89&x-expires=1788328032&x-signature=vFmE1NCUvx5RYGQTFvDOJYr4w2A%3D';
+    }
+    // Update chart colors when theme changes
+    if (typeof updatePieChartTheme === 'function') {
+      setTimeout(updatePieChartTheme, 100);
     }
   }
   setTheme(currentTheme);
@@ -1112,32 +1125,242 @@ window.openShareModal = function() { document.getElementById('shareModal').class
     fpContainer.appendChild(p);
   }
   
-  function initChart() {
-    var chartDom = document.getElementById('chartPie');
-    if (!chartDom) return;
-    var myChart = echarts.init(chartDom);
-    var textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim() || '#0f172a';
-    var cardColor = getComputedStyle(document.documentElement).getPropertyValue('--card').trim() || '#fff';
-    var option = {
-      tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
-      legend: { bottom: '5%', left: 'center', textStyle: { color: textColor, fontFamily: 'Comfortaa' } },
+  function getChartColors() {
+    var styles = getComputedStyle(document.documentElement);
+    return {
+      textColor: styles.getPropertyValue('--text').trim() || '#0f172a',
+      cardColor: styles.getPropertyValue('--card').trim() || '#fff',
+      accent: styles.getPropertyValue('--accent').trim() || '#297a2e',
+      accent2: styles.getPropertyValue('--accent2').trim() || '#d97706',
+      muted: styles.getPropertyValue('--muted').trim() || '#64748b',
+      bg: styles.getPropertyValue('--bg').trim() || '#faf9f4'
+    };
+  }
+
+  function buildChartOption() {
+    var c = getChartColors();
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    var labelBg = isDark ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.04)';
+    var borderAlpha = isDark ? '0.5' : '0.3';
+    
+    return {
+      animation: true,
+      animationDuration: 1800,
+      animationEasing: 'elasticOut',
+      animationDurationUpdate: 800,
+      animationEasingUpdate: 'cubicInOut',
+      tooltip: { 
+        trigger: 'item', 
+        formatter: '{b}: {c} ({d}%)',
+        backgroundColor: c.cardColor,
+        borderColor: c.accent,
+        borderWidth: 1,
+        textStyle: { color: c.textColor, fontFamily: 'Comfortaa', fontSize: 13 },
+        padding: [12, 16],
+        extraCssText: 'border-radius:10px;box-shadow:0 8px 30px rgba(0,0,0,0.2);'
+      },
+      legend: { 
+        bottom: '2%', 
+        left: 'center', 
+        textStyle: { color: c.textColor, fontFamily: 'Comfortaa', fontSize: 13, fontWeight: 600 },
+        itemWidth: 14,
+        itemHeight: 14,
+        itemGap: 24,
+        icon: 'circle'
+      },
+      graphic: [{
+        id: 'totalLabel',
+        type: 'text',
+        left: 'center',
+        top: '38%',
+        style: {
+          text: 'Total',
+          textAlign: 'center',
+          fill: c.muted,
+          fontFamily: 'Comfortaa',
+          fontSize: 14,
+          fontWeight: 600
+        }
+      }, {
+        id: 'totalValue',
+        type: 'text',
+        left: 'center',
+        top: '48%',
+        style: {
+          text: '208.652',
+          textAlign: 'center',
+          fill: c.accent,
+          fontFamily: 'Comfortaa',
+          fontSize: 22,
+          fontWeight: 700
+        }
+      }],
       series: [{
         name: 'Jenis Kelamin',
         type: 'pie',
-        radius: ['40%', '70%'],
-        avoidLabelOverlap: false,
-        itemStyle: { borderRadius: 10, borderColor: cardColor, borderWidth: 3 },
-        label: { show: true, formatter: '{b}\n{d}%', fontFamily: 'Comfortaa', fontSize: 12, fontWeight: 600 },
-        emphasis: { label: { show: true, fontSize: 14, fontWeight: 700 } },
-        labelLine: { show: true },
+        radius: ['45%', '72%'],
+        center: ['50%', '45%'],
+        avoidLabelOverlap: true,
+        padAngle: 3,
+        startAngle: 90,
+        clockwise: true,
+        itemStyle: { 
+          borderRadius: 14, 
+          borderColor: c.cardColor, 
+          borderWidth: 4,
+          shadowBlur: 20,
+          shadowColor: isDark ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.15)',
+          shadowOffsetX: 0,
+          shadowOffsetY: 6
+        },
+        label: { 
+          show: true, 
+          formatter: '{b}\n{d}%', 
+          fontFamily: 'Comfortaa', 
+          fontSize: 13, 
+          fontWeight: 700,
+          color: c.textColor,
+          padding: [4, 8],
+          backgroundColor: labelBg,
+          borderRadius: 6,
+          distanceToLabelLine: 8
+        },
+        labelLine: { 
+          show: true,
+          length: 15,
+          length2: 10,
+          smooth: true,
+          lineStyle: {
+            width: 2,
+            type: 'solid',
+            color: c.muted
+          }
+        },
+        emphasis: { 
+          scale: true,
+          scaleSize: 18,
+          label: { 
+            show: true, 
+            fontSize: 16, 
+            fontWeight: 700,
+            color: c.accent
+          },
+          itemStyle: {
+            shadowBlur: 30,
+            shadowOffsetX: 0,
+            shadowOffsetY: 10,
+            shadowColor: c.accent
+          }
+        },
+        select: {
+          mode: 'single',
+          label: { show: true },
+          itemStyle: {
+            shadowBlur: 40,
+            shadowColor: c.accent
+          }
+        },
+        selectedMode: 'single',
         data: [
-          { value: 106208, name: 'Laki-laki', itemStyle: { color: '#2563eb' } },
-          { value: 102444, name: 'Perempuan', itemStyle: { color: '#db2777' } }
+          { 
+            value: 106208, 
+            name: 'Laki-laki', 
+            itemStyle: { 
+              color: {
+                type: 'radial',
+                x: 0.5,
+                y: 0.5,
+                r: 0.8,
+                colorStops: [
+                  { offset: 0, color: '#60a5fa' },
+                  { offset: 1, color: '#2563eb' }
+                ]
+              }
+            }
+          },
+          { 
+            value: 102444, 
+            name: 'Perempuan', 
+            itemStyle: { 
+              color: {
+                type: 'radial',
+                x: 0.5,
+                y: 0.5,
+                r: 0.8,
+                colorStops: [
+                  { offset: 0, color: '#f472b6' },
+                  { offset: 1, color: '#db2777' }
+                ]
+              }
+            }
+          }
         ]
       }]
     };
-    myChart.setOption(option);
-    window.addEventListener('resize', function() { myChart.resize(); });
+  }
+
+  function initChart() {
+    var chartDom = document.getElementById('chartPie');
+    if (!chartDom) return;
+    
+    // Hancurkan instance lama jika ada
+    if (pieChartInstance) {
+      pieChartInstance.dispose();
+      pieChartInstance = null;
+    }
+    
+    pieChartInstance = echarts.init(chartDom);
+    var option = buildChartOption();
+    pieChartInstance.setOption(option);
+    
+    // Auto-rotate animation effect
+    var currentIndex = -1;
+    var rotateTimer = null;
+    
+    function startRotate() {
+      if (rotateTimer) clearInterval(rotateTimer);
+      rotateTimer = setInterval(function() {
+        if (!pieChartInstance) return;
+        var dataLen = option.series[0].data.length;
+        pieChartInstance.dispatchAction({ type: 'downplay', seriesIndex: 0, dataIndex: currentIndex });
+        currentIndex = (currentIndex + 1) % dataLen;
+        pieChartInstance.dispatchAction({ type: 'highlight', seriesIndex: 0, dataIndex: currentIndex });
+        pieChartInstance.dispatchAction({ type: 'showTip', seriesIndex: 0, dataIndex: currentIndex });
+      }, 3500);
+    }
+    
+    function stopRotate() {
+      if (rotateTimer) {
+        clearInterval(rotateTimer);
+        rotateTimer = null;
+      }
+    }
+    
+    startRotate();
+    
+    chartDom.addEventListener('mouseenter', stopRotate);
+    
+    chartDom.addEventListener('mouseleave', function() {
+      if (!pieChartInstance) return;
+      pieChartInstance.dispatchAction({ type: 'hideTip' });
+      pieChartInstance.dispatchAction({ type: 'downplay', seriesIndex: 0 });
+      currentIndex = -1;
+      startRotate();
+    });
+    
+    window.addEventListener('resize', function() { 
+      if (pieChartInstance) pieChartInstance.resize(); 
+    });
+  }
+  
+  // Fungsi untuk memperbarui warna chart saat tema berubah
+  function updatePieChartTheme() {
+    if (!pieChartInstance) return;
+    var newOption = buildChartOption();
+    // Nonaktifkan animasi berat saat update tema
+    newOption.animationDurationUpdate = 400;
+    pieChartInstance.setOption(newOption, { notMerge: false, lazyUpdate: false });
+    pieChartInstance.resize();
   }
 })();
 </script>
